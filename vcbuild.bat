@@ -87,8 +87,8 @@ if defined noprojgen goto msbuild
 if defined NIGHTLY set TAG=nightly-%NIGHTLY%
 
 @rem Generate the VS project.
-SETLOCAL
-  if defined VS100COMNTOOLS call "%VS100COMNTOOLS%\VCVarsQueryRegistry.bat"
+SETLOCAL 
+  if defined VS110COMNTOOLS call "%VS110COMNTOOLS%\VCVarsQueryRegistry.bat"
   python configure %debug_arg% %nosnapshot_arg% %noetw_arg% %noperfctr_arg% --dest-cpu=%target_arch% --tag=%TAG%
   if errorlevel 1 goto create-msvs-files-failed
   if not exist node.sln goto create-msvs-files-failed
@@ -101,9 +101,9 @@ if defined nobuild goto sign
 
 @rem Bail out early if not running in VS build env.
 if defined VCINSTALLDIR goto msbuild-found
-if not defined VS100COMNTOOLS goto msbuild-not-found
-if not exist "%VS100COMNTOOLS%\..\..\vc\vcvarsall.bat" goto msbuild-not-found
-call "%VS100COMNTOOLS%\..\..\vc\vcvarsall.bat"
+if not defined VS110COMNTOOLS goto msbuild-not-found
+if not exist "%VS110COMNTOOLS%\..\..\vc\vcvarsall.bat" goto msbuild-not-found
+call "%VS110COMNTOOLS%\..\..\vc\vcvarsall.bat"
 if not defined VCINSTALLDIR goto msbuild-not-found
 goto msbuild-found
 
