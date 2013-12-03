@@ -22,7 +22,6 @@ node_g
 Debug/
 Release/
 !doc/blog/**
-*.sln
 !nodemsi.sln
 *.suo
 UpgradeLog*.XML
