@@ -234,10 +234,6 @@
     <ResourceCompile Include="tools\msvs\genfiles\node_perfctr_provider.rc" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="node_js2c.vcxproj">
-      <Project>{4DCBA3DB-4989-EAB7-0252-907D0C8A5A33}</Project>
-      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
-    </ProjectReference>
     <ProjectReference Include="deps\openssl\openssl.vcxproj">
       <Project>{5C6460DB-F7B1-5315-A0DE-79A9DFC525A1}</Project>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
